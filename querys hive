@@ -1,0 +1,29 @@
+select count(*) from mta_bus;
+
+select stoppointname, progressrate, count(*) 
+from mta_bus
+group by stoppointname, progressrate;
+
+select stoppointname, expectedarrivaltime
+from mta_bus
+where progressrate = 'noProgress';
+
+
+select stoppointname, count(*) as count
+from mta_bus
+where progressrate = 'noProgress'
+group by stoppointname
+order by count desc;
+
+
+
+select vehicleref, count(*) as count
+from mta_bus
+where progressrate = 'noProgress'
+group by vehicleref
+order by count desc;
+
+
+
+
+
